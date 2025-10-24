@@ -10,17 +10,22 @@ export default function SmoothFollower() {
     border: { x: 0, y: 0 },
   });
   const [isHovering, setIsHovering] = useState(false);
+
   const DOT_SMOOTHNESS = 0.2;
   const BORDER_DOT_SMOOTHNESS = 0.1;
 
   useEffect(() => {
+    // Track real-time cursor position
     const handleMouseMove = (e) => {
       mousePosition.current = { x: e.clientX, y: e.clientY };
     };
+
+    // Detect interactive elements
     const handleMouseEnter = () => setIsHovering(true);
     const handleMouseLeave = () => setIsHovering(false);
 
     window.addEventListener('mousemove', handleMouseMove);
+
     const interactiveElements = document.querySelectorAll(
       'a, button, img, input, textarea, select'
     );
@@ -29,10 +34,11 @@ export default function SmoothFollower() {
       element.addEventListener('mouseleave', handleMouseLeave);
     });
 
+    // Smooth follow animation
     const animate = () => {
-      const lerp = (start, end, factor) => {
-        return start + (end - start) * factor;
-      };
+      const lerp = (start, end, factor) => start + (end - start) * factor;
+
+      // update main dot
       dotPosition.current.x = lerp(
         dotPosition.current.x,
         mousePosition.current.x,
@@ -43,6 +49,8 @@ export default function SmoothFollower() {
         mousePosition.current.y,
         DOT_SMOOTHNESS
       );
+
+      // update border circle
       borderDotPosition.current.x = lerp(
         borderDotPosition.current.x,
         mousePosition.current.x,
@@ -53,17 +61,18 @@ export default function SmoothFollower() {
         mousePosition.current.y,
         BORDER_DOT_SMOOTHNESS
       );
+
       setRenderPos({
         dot: { x: dotPosition.current.x, y: dotPosition.current.y },
-        border: {
-          x: borderDotPosition.current.x,
-          y: borderDotPosition.current.y,
-        },
+        border: { x: borderDotPosition.current.x, y: borderDotPosition.current.y },
       });
+
       requestAnimationFrame(animate);
     };
+
     const animationId = requestAnimationFrame(animate);
 
+    // Clean up events
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       interactiveElements.forEach((element) => {
@@ -74,12 +83,14 @@ export default function SmoothFollower() {
     };
   }, []);
 
+  // Avoid hydration warnings
   if (typeof window === 'undefined') return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-50">
+    <div className="pointer-events-none fixed inset-0 z-[10000]">
+      {/* Main small dot */}
       <div
-        className="absolute rounded-full dark:bg-white bg-black "
+        className="absolute rounded-full"
         style={{
           width: '8px',
           height: '8px',
@@ -87,19 +98,22 @@ export default function SmoothFollower() {
           left: `${renderPos.dot.x}px`,
           top: `${renderPos.dot.y}px`,
           backgroundColor: 'white',
+          transition: 'background-color 0.2s ease',
         }}
       />
 
+      {/* Outer circle border */}
       <div
-        className="absolute rounded-full border dark:border-white border-black "
+        className="absolute rounded-full border"
         style={{
           width: isHovering ? '44px' : '28px',
           height: isHovering ? '44px' : '28px',
           transform: 'translate(-50%, -50%)',
           left: `${renderPos.border.x}px`,
           top: `${renderPos.border.y}px`,
-          transition: 'width 0.3s, height 0.3s',
-           borderColor: 'white',
+          borderColor: 'white',
+          transition:
+            'width 0.3s ease, height 0.3s ease, border-color 0.3s ease',
         }}
       />
     </div>

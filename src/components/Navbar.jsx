@@ -45,7 +45,7 @@ const Navbar = () => {
         className="relative hidden md:flex items-center justify-center"
       >
         <div 
-          className={`w-10 h-10 rounded-full bg-black flex items-center justify-center cursor-pointer transition-all duration-300
+          className={`w-10 h-10 rounded-full bg-black flex items-center justify-center transition-all duration-300
             ${isPlaying 
               ? 'animate-spin-slow' 
               : 'shadow-[0_0_10px_rgba(210,181,181,0.7)]'}`}
