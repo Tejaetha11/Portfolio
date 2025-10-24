@@ -13,7 +13,6 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Helmet } from 'react-helmet-async';
 import emailjs from '@emailjs/browser';
 import SmoothFollower from './components/ui/SmoothFollower';
-import './App.css'; // Make sure global styles are imported
 
 function App() {
   const [started, setStarted] = useState(false);
