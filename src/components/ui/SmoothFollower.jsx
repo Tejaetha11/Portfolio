@@ -86,6 +86,7 @@ export default function SmoothFollower() {
           transform: 'translate(-50%, -50%)',
           left: `${renderPos.dot.x}px`,
           top: `${renderPos.dot.y}px`,
+          backgroundColor: 'white',
         }}
       />
 
@@ -98,6 +99,7 @@ export default function SmoothFollower() {
           left: `${renderPos.border.x}px`,
           top: `${renderPos.border.y}px`,
           transition: 'width 0.3s, height 0.3s',
+           borderColor: 'white',
         }}
       />
     </div>
