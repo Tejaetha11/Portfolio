@@ -14,6 +14,7 @@ import { Helmet } from 'react-helmet-async';
 import emailjs from '@emailjs/browser';
 import SmoothFollower from './components/ui/SmoothFollower';
 
+
 function App() {
   const [started, setStarted] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
@@ -71,6 +72,9 @@ function App() {
         <meta name="twitter:image" content="https://tejarajueeta.vercel.app/profile_pic.png" />
       </Helmet>
 
+      {/* Smooth cursor globally rendered on top */}
+      <SmoothFollower />
+
       {/* UI Flow */}
       {!started ? (
         <EnterScreen onEnter={handleStart} />
@@ -79,10 +83,6 @@ function App() {
       ) : (
         <Router>
           <div className="bg-white dark:bg-black relative">
-            {/* Smooth cursor globally */}
-            <SmoothFollower />
-
-            {/* Main Layout */}
             <Navbar />
             <Routes>
               <Route path="/" element={<Hero />} />

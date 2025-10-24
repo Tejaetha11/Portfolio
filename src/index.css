@@ -152,6 +152,16 @@ a, button {
   z-index: 0;
 }
 
+/* Remove hand cursor from nav links */
+.nav-a {
+  cursor: none !important;
+}
+
+.nav-a:hover {
+  cursor: none !important;
+}
+
+
 /* ===== ABOUT SECTION ===== */
 .coming-soon-text {
   font-size: 70px;
