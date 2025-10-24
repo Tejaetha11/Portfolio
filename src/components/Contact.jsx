@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "../lib/utils";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  const formRef = useRef(null); 
+  const formRef = useRef(null);
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState(null);
 
@@ -23,18 +23,18 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_7yymo38",       
-        "template_12345",       
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
         formRef.current,
-        "Nrt6aQrzDZimIGqI8"     
+        import.meta.env.VITE_PUBLIC_KEY
       )
       .then(() => {
-        setStatus(" Message sent successfully!");
+        setStatus("Message sent successfully!");
         formRef.current.reset();
       })
       .catch((err) => {
         console.error("EmailJS error:", err);
-        setStatus(" Failed to send message. Please try again later.");
+        setStatus("Failed to send message. Please try again later.");
       })
       .finally(() => setSending(false));
   };
@@ -97,7 +97,7 @@ const Contact = () => {
           </div>
 
           {status && (
-            <p className={`mt-4 text-sm ${status? "text-green-400" : "text-red-400"}`}>
+            <p className={`mt-4 text-sm ${status.includes("successfully") ? "text-green-400" : "text-red-400"}`}>
               {status}
             </p>
           )}

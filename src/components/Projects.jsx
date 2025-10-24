@@ -10,67 +10,29 @@ import ProjectImage from "./utils/ProjectImage";
 
 const projects = [
   {
-    title: "Apple Website Clone",
+    title: "Amazon Website clone",
     description:
-      "A modern, animated clone of the official Apple website made with smooth scroll and transitions.",
-    link: "https://apple-website-ecru-xi.vercel.app/",
-    image: "/Apple_website.png",
+      "A fully responsive Amazon clone built with React and Flask, featuring smooth navigation, dynamic product listings, and integrated MySQL database for seamless functionality.",
+    link: "https://bespoke-babka-0ee821.netlify.app/",
+    image: "/Amazon_Website.png",
     blurhash:"L02$Hd9Z00~pneofp0WB00?a~V01"
   },
   {
-    title: "Movies Website",
+    title: "Virtual Pet Simulator",
     description:
-      "Movie explorer website with sleek UI and live API integration.",
-    link: "https://movies-web-project-seven.vercel.app/",
-    image: "/Movies.png",
-    blurhash:"LACZ35PqnOi_T0X9a|WA00+FIpkW"
+      "A fun and interactive virtual pet simulator where users can feed, play, and care for their pets, built with engaging animations and responsive controls.",
+      link: "https://virtualpetsimulator.netlify.app/",
+    image: "/virtual_pet.png",
+    blurhash:"LKO2?U%2Tw=w]~RBVZRi};RPxuwH"
   },
   {
-    title: "To-Do App with Flask",
+    title: "Virtual Art Gallery",
     description:
-      "Flask-powered backend with persistent task management frontend.",
-    link: "https://todo-with-flask-a93d.onrender.com/",
-    image: "/Task_Master.png",
-    blurhash:"L13l5O9F4n%MD%t7t7Rj00t7_3IU"
-  },
-  {
-    title: "Temperature Converter (JS)",
-    description:
-      "Interactive converter for Celsius/Fahrenheit using plain JavaScript.",
-    link: "https://chaitanyasai-meka.github.io/Temperature_Converter_JS/code/index.html",
-    image: "/Temperature.png",
-    blurhash:"L2QT1Z3C~Xtm00%EV[R.00erD}fP"
-  },
-  {
-    title: "Capstone Project (HTML/CSS)",
-    description:
-      "Final capstone web project showcasing HTML and CSS skills.",
-    link: "https://chaitanyasai-meka.github.io/Capstone_Project/",
-    image: "/Capstone.png",
-    blurhash:"LhLz?TRk~qoe-=azM{ay?cs.MxbH"
-  },
-  {
-    title: "Healthy Middle-Class India",
-    description: "Healthy Middle-Class India: Tackles obesity and lifestyle diseases with systemic solutions.",
-    link: "https://fste-chi.vercel.app",
-    image: "/fste.png",
-    blurhash:"L1NAoU3}MZPp004N019c00UDI89H"
-  },
-  {
-    title: "CYBERFICTION",
-    description: "Features smooth scrolling and logo animation using HTML, CSS, JS, Lenis, and GSAP. ",
-    link: "https://chaitanyasai-meka.github.io/CYBERFICTION/",
-    image: "/cyberfiction.png",
-     blurhash:"LbOzMcWB_NxuR*t7RjRjogWBM{fk"
-  },
-  {
-    title: "Coming Soon",
-    description:
-      "Still in the oven. Can’t wait to serve it hot!",
-    link: "",
-    image: "/black_page.jpg",
-    blurhash:"L00SvEayWAfQozfQayfQayfQf8fQ"
-  },
+      "An immersive virtual art gallery showcasing artworks in a 3D interactive space, allowing users to explore, navigate, and experience art digitally.",
+      link: "https://glistening-starburst-1128bc.netlify.app/",
+    image: "/virtual_art.png",
+    blurhash:"LKO2?U%2Tw=w]~RBVZRi};RPxuwH"
+  }
 ];
 
 const Projects = () => {
@@ -133,7 +95,7 @@ const Projects = () => {
 
       {/* Section Title */}
       <div className="relative z-10 mb-12 text-center">
-        <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
+        <h2 className="ml-[45px] text-3xl md:text-5xl font-bold text-transparent [-webkit-text-stroke:2px_#22d3ee] drop-shadow-[0_0_20px_rgba(34,211,238,0.8)] hover:drop-shadow-[0_0_40px_rgba(34,211,238,1)] transition-all duration-300">
           Things I've been building 🚀
         </h2>
         <p className="mt-4 text-neutral-400 text-sm md:text-base max-w-xl mx-auto">

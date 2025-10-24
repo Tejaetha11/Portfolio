@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Typewriter } from "react-simple-typewriter";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode, SiCodeforces } from "react-icons/si";
@@ -38,7 +38,7 @@ const Hero = () => {
                 lg: 70,
               }}
               strokeWidth={1.5}
-              text="Chaitanya Sai Meka"
+              text="TejaRaju Eeta"
               color="url(#gradient)"
             />
           </div>
@@ -57,12 +57,12 @@ const Hero = () => {
             <span className="text-indigo-300 font-semibold typing-text">
               <Typewriter
                 words={[
-                  "Weaving Full-Stack Magic",
-                  "Animating Digital Fantasies",
-                  "Forging Unbreakable Backends",
-                  "Sculpting Pixel-Perfect Frontends",
-                  "Crafting Apps for Every Horizon",
-                  "Breathing Life into 3D Worlds",
+                  "Architecting Full-Stack Realities",
+                  "Animating Ideas into Interactive Worlds",
+                  "Engineering Backends Built to Endure",
+                  "Designing Interfaces That Breathe Elegance",
+                  "Building Apps That Transcend Boundaries",
+                  "Shaping 3D Dreams Through Code"
                 ]}
                 loop={0}
                 cursor
@@ -98,23 +98,7 @@ const Hero = () => {
               className="icon-circle hover:text-blue-600 transition"
             >
               <FaLinkedin />
-            </a>
-            <a
-              href="https://leetcode.com/u/chaitanyasai_meka/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-circle hover:text-yellow-500 transition"
-            >
-              <SiLeetcode />
-            </a>
-            <a
-              href="https://codeforces.com/profile/Chaitanyasai_meka"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-circle hover:text-blue-400 transition"
-            >
-              <SiCodeforces />
-            </a>
+            </a> 
           </div>
         </div>
       </div>

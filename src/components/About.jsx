@@ -7,22 +7,30 @@ const About = () => {
   return (
     <section className="about-container relative flex min-h-[50rem] md:min-h-screen w-full items-center justify-center bg-black text-center py-20 px-4">
       <Helmet>
-        <title>About Chaitanya Sai Meka | Full Stack Developer & AI Enthusiast</title>
-        <meta name="description" content="Learn more about Chaitanya Sai Meka, a passionate full-stack developer with expertise in React, Node.js, AI/ML, UI/UX design, and entrepreneurial ventures. Discover my journey and goals." />
-        <link rel="canonical" href="https://chaitanya-sai-meka.vercel.app/about" />
-        <meta property="og:title" content="About Chaitanya Sai Meka | Full Stack Developer" />
-        <meta property="og:description" content="Get to know Chaitanya Sai Meka's background, skills, projects, and entrepreneurial aspirations in full-stack development and AI/ML." />
+        <title>TejaRaju Eeta | Full Stack Developer</title>
+        <meta
+          name="description"
+          content="Learn more about TejaRaju Eeta, a passionate full stack developer skilled in HTML, CSS, Tailwind, JavaScript, React, Python, Flask, and MySQL."
+        />
+        <link rel="canonical" href="https://tejarajueeta.vercel.app/about" />
+        <meta property="og:title" content="About TejaRaju Eeta | Full Stack Developer" />
+        <meta
+          property="og:description"
+          content="Discover TejaRaju Eeta's journey as a full stack developer passionate about web development, backend engineering, and creating impactful digital experiences."
+        />
         <meta property="og:type" content="profile" />
-        <meta property="og:url" content="https://chaitanya-sai-meka.vercel.app/about" />
-        <meta property="og:image" content="https://chaitanya-sai-meka.vercel.app/profile_pic.png" />
-        <meta property="og:site_name" content="Chaitanya Sai Meka's Portfolio" />
+        <meta property="og:url" content="https://tejarajueeta.vercel.app/about" />
+        <meta property="og:image" content="https://tejarajueeta.vercel.app/profile_pic.png" />
+        <meta property="og:site_name" content="TejaRaju Eeta's Portfolio" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content="@IAMCHAITANYASAI" />
-        <meta name="twitter:title" content="About Chaitanya Sai Meka | Full Stack Developer" />
-        <meta name="twitter:description" content="Discover Chaitanya Sai Meka's passion for coding, full-stack development, AI, and building impactful digital solutions." />
-        <meta name="twitter:image" content="https://chaitanya-sai-meka.vercel.app/profile_pic.png" />
+        <meta name="twitter:title" content="About TejaRaju Eeta | Full Stack Developer" />
+        <meta
+          name="twitter:description"
+          content="Explore TejaRaju Eeta's profile — a full stack developer experienced in HTML, CSS, Tailwind, JavaScript, React, Python, Flask, and MySQL."
+        />
+        <meta name="twitter:image" content="https://tejarajueeta.vercel.app/profile_pic.png" />
       </Helmet>
-      
+
       {/* Background pattern */}
       <div
         className={cn(
@@ -31,37 +39,44 @@ const About = () => {
           "[background-image:radial-gradient(#404040_1px,transparent_1px)]"
         )}
       />
+
       {/* Faded radial gradient overlay */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
       {/* Content */}
       <div className="relative z-20 max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-12">
         {/* Profile Image */}
-        <div className="w-64 h-64 rounded-full overflow-hidden flex-shrink-0 border-4 border-neutral-800">
-        <BlurImage
-          src="/profile_pic.png"
-          blurhash="LAB._mEN5SkC-TNdofWX0hay}=WC"
-          alt="Profile"
-          className="w-full h-full"
-        />
+        <div className="relative w-65 h-65 rounded-full overflow-hidden flex-shrink-0 border-4 border-neutral-800 bg-neutral-900">
+          <BlurImage
+            src="/profile_pic.png"
+            blurhash="LAB._mEN5SkC-TNdofWX0hay}=WC"
+            alt="TejaRaju Eeta"
+            className="w-64 h-84 object-contain scale-100"
+          />
         </div>
 
         {/* Text Content */}
         <div className="text-left text-neutral-300 max-w-2xl ml-8 md:ml-16">
-          <h1 className="text-4xl sm:text-7xl font-bold bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent py-8">
-            About Me.
+          {/* Clean chrome finish Heading */}
+         <h1 className="text-4xl sm:text-7xl font-extrabold py-8 inline-block">
+            <span className="bg-gradient-to-b from-neutral-100 via-neutral-400 to-neutral-700 bg-clip-text text-transparent [text-shadow:2px_2px_4px_rgba(0,0,0,0.5)] filter drop-shadow-[0_5px_15px_rgba(255,255,255,0.2)] hover:drop-shadow-[0_8px_20px_rgba(255,255,255,0.3)] transition-all duration-300">
+              About Me
+            </span>
+            <span className="text-neutral-400">.</span>
           </h1>
+
+          {/* Paragraphs */}
           <p className="text-lg leading-relaxed mb-4">
-            I’m Chaitanya Sai Meka, a passionate and driven developer with a strong foundation in software engineering and a keen interest in building impactful digital solutions. I thrive at the intersection of technology and creativity, with hands-on experience in full-stack development, UI/UX design, and collaborative team projects.
+            I'm <strong>TejaRaju Eeta</strong>, a passionate <strong>Full Stack Developer</strong> who loves building modern, responsive, and user-friendly web applications. I enjoy turning ideas into functional digital experiences using clean design and efficient code.
           </p>
           <p className="text-lg leading-relaxed mb-4">
-            Currently pursuing my academic journey while actively working on personal and open-source projects, I continuously seek opportunities to learn and grow in real-world environments. I have a strong grasp of modern web technologies, especially React, and I enjoy solving complex problems with clean, efficient code.
+            My technical stack includes <strong>HTML, CSS, Tailwind, Bootstrap, JavaScript, React, Python, Flask, and MySQL</strong>. I focus on creating seamless user interfaces while maintaining strong, scalable backend systems.
           </p>
           <p className="text-lg leading-relaxed mb-4">
-            I'm also exploring the early stages of a tech startup idea called <strong>Xeon</strong>, where I'm experimenting with innovative solutions and learning to translate abstract ideas into structured plans. This journey is helping me build my entrepreneurial mindset and sharpen my skills in product thinking, strategy, and leadership—even as the concept evolves through ideation and feedback.
+            One of my recent projects is an <strong>Amazon Clone</strong>, built using React for the frontend and Flask with MySQL for the backend — showcasing my ability to handle both client-side and server-side logic.
           </p>
           <p className="text-lg leading-relaxed">
-            My goal is to work on challenging projects, learn from experienced mentors, and make meaningful contributions to the tech community.
+            I'm constantly exploring new technologies and improving my problem-solving skills. My goal is to grow as a developer, contribute to impactful projects, and build innovative web solutions that make a difference.
           </p>
         </div>
       </div>

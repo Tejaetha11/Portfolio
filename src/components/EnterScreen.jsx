@@ -1,4 +1,4 @@
-import React from "react";
+
 import { SpiralAnimation } from "./ui/spiralanimation";
 
 const EnterScreen = ({ onEnter }) => {

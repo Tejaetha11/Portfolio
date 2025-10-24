@@ -11,26 +11,30 @@ import Footer from './components/Footer';
 import Skills from './components/Skills';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Helmet } from 'react-helmet-async';
+import emailjs from '@emailjs/browser';  // Updated import
 
 function App() {
   const [started, setStarted] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
   const [initialCheckDone, setInitialCheckDone] = useState(false);
 
-useEffect(() => {
-  const isBot = /bot|crawl|spider|slurp|bing/i.test(navigator.userAgent);
-  const isHome = window.location.pathname === '/';
-  const alreadyVisited = sessionStorage.getItem('alreadyVisited');
+  useEffect(() => {
+    // Initialize EmailJS once at app start with your public key
+    emailjs.init(import.meta.env.VITE_PUBLIC_KEY);
 
-  if (isBot) {
-    setStarted(true);
-  } else if (isHome && !alreadyVisited) {
-    setStarted(false);
-  } else {
-    setStarted(true);
-  }
-  setInitialCheckDone(true);
-}, []);
+    const isBot = /bot|crawl|spider|slurp|bing/i.test(navigator.userAgent);
+    const isHome = window.location.pathname === '/';
+    const alreadyVisited = sessionStorage.getItem('alreadyVisited');
+
+    if (isBot) {
+      setStarted(true);
+    } else if (isHome && !alreadyVisited) {
+      setStarted(false);
+    } else {
+      setStarted(true);
+    }
+    setInitialCheckDone(true);
+  }, []);
 
   const handleStart = () => {
     sessionStorage.setItem('alreadyVisited', 'true');
@@ -44,29 +48,29 @@ useEffect(() => {
     <>
       {/* Global SEO Metadata */}
       <Helmet>
-        <title>Chaitanya Sai Meka | Full Stack Developer & AI Enthusiast</title>
-        <meta name="description" content="Official portfolio of Chaitanya Sai Meka, a full stack developer skilled in React, Node.js, and passionate about AI/ML. Explore projects, skills, and experience." />
+        <title>TejaRaju Eeta | Full Stack Developer & AI Enthusiast</title>
+        <meta name="description" content="Official portfolio of TejaRaju Eeta, a full stack developer skilled in React, Node.js, and passionate about AI/ML. Explore projects, skills, and experience." />
         <link rel="canonical" href="https://chaitanya-sai-meka.vercel.app/" />
 
         <meta property="og:title" content="Chaitanya Sai Meka | Full Stack Developer" />
-        <meta property="og:description" content="Official portfolio of Chaitanya Sai Meka, a full stack developer skilled in React, Node.js, and passionate about AI/ML." />
+        <meta property="og:description" content="Official portfolio of TejaRaju-Eeta, a full stack developer skilled in React, Node.js, and passionate about AI." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://chaitanya-sai-meka.vercel.app/" />
-        <meta property="og:image" content="https://chaitanya-sai-meka.vercel.app/profile_pic.png" />
-        <meta property="og:site_name" content="Chaitanya Sai Meka's Portfolio" />
+        <meta property="og:url" content="https://TejaRaju-Eeta.vercel.app/" />
+        <meta property="og:image" content="https://TejaRaju-Eeta.vercel.app/profile_pic.png" />
+        <meta property="og:site_name" content="TejaRaju Eeta Portfolio" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content="@IAMCHAITANYASAI" />
-        <meta name="twitter:title" content="Chaitanya Sai Meka | Full Stack Developer" />
-        <meta name="twitter:description" content="Official portfolio of Chaitanya Sai Meka, a full stack developer skilled in React, Node.js, and passionate about AI/ML." />
-        <meta name="twitter:image" content="https://chaitanya-sai-meka.vercel.app/profile_pic.png" />
+        <meta name="twitter:creator" content="@TejaRaju Eeta" />
+        <meta name="twitter:title" content="TejaRaju Eeta | Full Stack Developer" />
+        <meta name="twitter:description" content="Official portfolio of TejaRaju-Eeta, a full stack developer skilled in React, Node.js, and passionate about AI/ML." />
+        <meta name="twitter:image" content="https://TejaRaju Eeta.vercel.app/profile_pic.png" />
 
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "Chaitanya Sai Meka",
+              "name": "TejaRaju-Eeta",
               "url": "https://chaitanya-sai-meka.vercel.app/",
               "sameAs": [
                 "https://github.com/ChaitanyaSai-Meka",
@@ -82,10 +86,10 @@ useEffect(() => {
               },
               "alumniOf": {
                 "@type": "EducationalOrganization",
-                "name": "Newton School of Technology"
+                "name": "Bonam Venkata Chalamayya Institute of Technology & Science"
               },
-              "image": "https://chaitanya-sai-meka.vercel.app/profile_pic.png",
-              "description": "Chaitanya Sai Meka is a passionate full-stack developer specializing in React and modern web technologies, with expertise in AI and machine learning, based in Rajamahendravaram, Andhra Pradesh, India."
+              "image": "https://TejaRaju-Eeta.vercel.app/profile_pic.png",
+              "description": "TejaRaju-Eeta is a passionate full-stack developer specializing in React and modern web technologies, with expertise in AI, based in Amalapuram, Andhra Pradesh, India."
             }
           `}
         </script>

@@ -8,31 +8,21 @@ import {
   FaJs,
   FaPython,
 } from "react-icons/fa";
-import { SiTypescript } from "react-icons/si";
 
 const Skills = () => {
   const colors = [
-    [138, 43, 226],  // Purple
-    [147, 112, 219], // Light Purple
-    [186, 85, 211],  // Medium Purple
-    [153, 50, 204],  // Dark Purple
-    [218, 112, 214], // Orchid
-    [221, 160, 221], // Plum
-    [216, 191, 216], // Thistle
-    [0, 105, 148],   // MySQL - Deep Blue
-    [56, 189, 248],  // Tailwind-like Sky Blue
-    [70, 130, 180],  // Postgresql
-    [57, 255, 20],   // Three.js - Neon Green
-    [30, 41, 59],    //Next.js - Slate Blue
-    [255, 0, 128],   // Framer Motion - Vibrant Pink
-    [0, 199, 255],   // Figma - Vivid Cyan/Blue
-    [104, 160, 99],  // Node.js - Medium Green
-    [51, 51, 51],    // Express.js - Dark Gray
-    [255, 136, 0],   // Postman - Bright Orange
-    [242, 101, 34],  // Java - Logo Orange
-    [0, 201, 167],   //React Native - Bright Teal 
-    [255, 166, 17], // Firebase - Dark Tangerine
-    [240, 81, 51],  // Swift - Vivid Orange
+    [138, 43, 226],  // Purple - React
+    [147, 112, 219], // Light Purple - HTML
+    [186, 85, 211],  // Medium Purple - CSS
+    [153, 50, 204],  // Dark Purple - JS
+    [218, 112, 214], // Python
+    [0, 105, 148],   // MySQL
+    [56, 189, 248],  // Tailwind
+    [104, 160, 99],  // Node.js
+    [255, 136, 0],   // Postman
+    [0, 201, 167],   // React Native
+    [86, 61, 124],   // Bootstrap - Deep Violet
+    [242, 101, 34],  // Flask - Orange
   ];
 
   const icons = [
@@ -40,14 +30,7 @@ const Skills = () => {
     <FaHtml5 key="html" className="text-white text-xl" />,
     <FaCss3Alt key="css" className="text-white text-xl" />,
     <FaJs key="js" className="text-white text-xl" />,
-    <SiTypescript key="ts" className="text-white text-xl" />,
-    <img
-      key="gsap"
-      src="/Gsap.png"
-      alt="Gsap"
-      className="w-9 h-9 p-1 object-contain"
-    />,
-    <FaPython key="Mysql" className="text-white text-xl" />,
+    <FaPython key="python" className="text-white text-xl" />,
     <img
       key="MySQL"
       src="/mysql_logo.png"
@@ -55,40 +38,10 @@ const Skills = () => {
       className="w-15 h-15 p-1 object-contain"
     />,
     <img
-      key="tailwind"
+      key="Tailwind"
       src="/tailwind.png"
       alt="Tailwind"
       className="w-9 h-9 p-1 object-contain"
-    />,
-    <img
-      key="postgresql"
-      src="/postgresql.png"
-      alt="Postgresql"
-      className="w-9 h-9 p-1 object-contain"
-    />,
-    <img
-      key="three-js-logo"
-      src="/three-js-logo.png"
-      alt="three.js"
-      className="w-9 h-9 p-1 object-contain"
-    />,
-    <img
-      key="next-js-logo"
-      src="/next.png"
-      alt="Next.js"
-      className="w-15 h-15 p-1 object-contain"
-    />,
-    <img
-      key="motion_logo"
-      src="/motion_logo().png"
-      alt="motion"
-      className="w-15 h-15 p-1 object-contain"
-    />,
-    <img
-      key="figma_logo"
-      src="/figma_logo.png"
-      alt="figma"
-      className="w-13 h-12 p-1 object-contain"
     />,
     <img
       key="NodeJS_logo"
@@ -97,40 +50,28 @@ const Skills = () => {
       className="w-13 h-12 p-1 object-contain"
     />,
     <img
-      key="ExpressJS_logo"
-      src="/ExpressJS_Logo.png"
-      alt="ExpressJS"
-      className="w-16 h-11 p-1 object-contain"
-    />,
-    <img
       key="Postman_Logo"
       src="/Postman_Logo.png"
       alt="Postman"
       className="w-15 h-15 p-1 object-contain"
     />,
     <img
-      key="Java_Logo"
-      src="/Java_Logo.png"
-      alt="Java"
-      className="w-13 h-14 px-1 pb-1 object-contain"
-    />,
-    <img
       key="React_Native_Logo"
       src="/react_native_logo.png"
-      alt="React_Native"
+      alt="React Native"
       className="w-11 h-12 px-1 pb-1 object-contain"
     />,
     <img
-      key="Firebase_Logo"
-      src="/firebase_logo.png"
-      alt="Firebase"
-      className="w-11 h-12 px-1 pb-1 object-contain"
+      key="Bootstrap_Logo"
+      src="/bootstrap_logo.png"
+      alt="Bootstrap"
+      className="w-11 h-11 p-1 object-contain"
     />,
     <img
-      key="Swift_Logo"
-      src="/swift_logo.png"
-      alt="Swift"
-      className="w-10 h-10 px-1 pb-1 object-contain"
+      key="Flask_Logo"
+      src="/flask_logo.png"
+      alt="Flask"
+      className="w-12 h-12 p-1 object-contain"
     />,
   ];
 
@@ -143,19 +84,10 @@ const Skills = () => {
     "/a6-piano.mp3",
     "/c6-piano.mp3",
     "/d6-piano.mp3",
-    "/e6-piano.mp3", 
-    "/a6-piano.mp3",
-    "/c6-piano.mp3",
-    "/g6-piano.mp3",
-    "/f6-piano.mp3",
-    "/a6-piano.mp3",
-    "/f6-piano.mp3",
-    "/g6-piano.mp3",
-    "/b6-piano.mp3",
     "/e6-piano.mp3",
-    "/d6-piano.mp3",
-    "/b6-piano.mp3",
-    "/g6-piano.mp3",
+    "/a6-piano.mp3",
+    "/c6-piano.mp3", // Bootstrap
+    "/f6-piano.mp3", // Flask
   ];
 
   const audioRefs = useRef([]);
@@ -168,7 +100,6 @@ const Skills = () => {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center px-4 py-12 sm:py-20 bg-black">
-      
       {/* Background Grid */}
       <div
         className={cn(
@@ -181,19 +112,36 @@ const Skills = () => {
       {/* Radial Mask */}
       <div className="absolute inset-0 z-10 pointer-events-none bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
-      {/* Heading */}
-      <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center bg-gradient-to-b from-neutral-300 to-neutral-500 bg-clip-text text-transparent z-20 mb-4 sm:mb-6">
-        Tools in My Arsenal
+      {/* Animated Gradient Heading */}
+      <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center z-20 mb-4 sm:mb-6">
+        <span 
+          className="bg-clip-text text-transparent"
+          style={{
+            backgroundImage: 'linear-gradient(90deg, #a855f7, #ec4899, #ef4444, #f59e0b, #10b981, #3b82f6, #a855f7)',
+            backgroundSize: '200% auto',
+            animation: 'gradient 4s linear infinite'
+          }}
+        >
+          Tools in My Arsenal
+        </span>
       </h2>
+
+      <style>{`
+        @keyframes gradient {
+          0% {
+            background-position: 0% center;
+          }
+          100% {
+            background-position: 200% center;
+          }
+        }
+      `}</style>
 
       {/* Prompts */}
       <div className="z-20 mb-6 text-lg font-semibold text-center">
-        {/* Mobile: Tap Prompt */}
         <p className="block sm:hidden bg-gradient-to-b from-neutral-300 to-neutral-500 bg-clip-text text-transparent">
           Try tapping on the icons 🎵
         </p>
-
-        {/* Desktop/Tablet: Hover Prompt */}
         <p className="hidden sm:block bg-gradient-to-b from-neutral-300 to-neutral-500 bg-clip-text text-transparent">
           Hover over the icons to hear a sound 🎵
         </p>
@@ -201,19 +149,17 @@ const Skills = () => {
 
       {/* Icon Cards */}
       <div className="relative z-20 flex justify-center gap-3 flex-wrap max-w-5xl w-full">
-      {icons.map((icon, index) => (
-        <CardSpotlight
-          key={index}
-          className="h-18 w-18 rounded-full flex items-center justify-center bg-black"
-          color={`rgb(${colors[index][0]}, ${colors[index][1]}, ${colors[index][2]})`}
-          onMouseEnter={() => handleMouseEnter(index)}
-          onClick={() => handleMouseEnter(index)}
-        >
-          <div className="relative z-20">
-            {icon}
-          </div>
-        </CardSpotlight>
-      ))}
+        {icons.map((icon, index) => (
+          <CardSpotlight
+            key={index}
+            className="h-18 w-18 rounded-full flex items-center justify-center bg-black"
+            color={`rgb(${colors[index][0]}, ${colors[index][1]}, ${colors[index][2]})`}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onClick={() => handleMouseEnter(index)}
+          >
+            <div className="relative z-20">{icon}</div>
+          </CardSpotlight>
+        ))}
       </div>
     </div>
   );
