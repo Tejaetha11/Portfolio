@@ -11,7 +11,9 @@ import Footer from './components/Footer';
 import Skills from './components/Skills';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Helmet } from 'react-helmet-async';
-import emailjs from '@emailjs/browser';  // Updated import
+import emailjs from '@emailjs/browser';
+import SmoothFollower from './components/ui/SmoothFollower';
+import './App.css'; // Make sure global styles are imported
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -19,7 +21,7 @@ function App() {
   const [initialCheckDone, setInitialCheckDone] = useState(false);
 
   useEffect(() => {
-    // Initialize EmailJS once at app start with your public key
+    // Initialize EmailJS
     emailjs.init(import.meta.env.VITE_PUBLIC_KEY);
 
     const isBot = /bot|crawl|spider|slurp|bing/i.test(navigator.userAgent);
@@ -33,6 +35,7 @@ function App() {
     } else {
       setStarted(true);
     }
+
     setInitialCheckDone(true);
   }, []);
 
@@ -49,50 +52,24 @@ function App() {
       {/* Global SEO Metadata */}
       <Helmet>
         <title>TejaRaju Eeta | Full Stack Developer & AI Enthusiast</title>
-        <meta name="description" content="Official portfolio of TejaRaju Eeta, a full stack developer skilled in React, Node.js, and passionate about AI/ML. Explore projects, skills, and experience." />
-        <link rel="canonical" href="https://chaitanya-sai-meka.vercel.app/" />
+        <meta
+          name="description"
+          content="Official portfolio of TejaRaju Eeta, a full stack developer skilled in React, Node.js, and passionate about AI/ML. Explore projects, skills, and experience."
+        />
+        <link rel="canonical" href="https://tejarajueeta.vercel.app/" />
 
-        <meta property="og:title" content="Chaitanya Sai Meka | Full Stack Developer" />
-        <meta property="og:description" content="Official portfolio of TejaRaju-Eeta, a full stack developer skilled in React, Node.js, and passionate about AI." />
+        <meta property="og:title" content="TejaRaju Eeta | Full Stack Developer" />
+        <meta property="og:description" content="Official portfolio of TejaRaju Eeta, a full stack developer skilled in React, Node.js, and passionate about AI." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://TejaRaju-Eeta.vercel.app/" />
-        <meta property="og:image" content="https://TejaRaju-Eeta.vercel.app/profile_pic.png" />
-        <meta property="og:site_name" content="TejaRaju Eeta Portfolio" />
+        <meta property="og:url" content="https://tejarajueeta.vercel.app/" />
+        <meta property="og:image" content="https://tejarajueeta.vercel.app/profile_pic.png" />
+        <meta property="og:site_name" content="Tejaraju Eeta Portfolio" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content="@TejaRaju Eeta" />
+        <meta name="twitter:creator" content="@TejaRajuEeta" />
         <meta name="twitter:title" content="TejaRaju Eeta | Full Stack Developer" />
-        <meta name="twitter:description" content="Official portfolio of TejaRaju-Eeta, a full stack developer skilled in React, Node.js, and passionate about AI/ML." />
-        <meta name="twitter:image" content="https://TejaRaju Eeta.vercel.app/profile_pic.png" />
-
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "TejaRaju-Eeta",
-              "url": "https://chaitanya-sai-meka.vercel.app/",
-              "sameAs": [
-                "https://github.com/ChaitanyaSai-Meka",
-                "https://www.instagram.com/chaitanyasai_meka/",
-                "https://www.linkedin.com/in/chaitanya-sai-meka/",
-                "https://leetcode.com/u/chaitanyasai_meka/",
-                "https://codeforces.com/profile/Chaitanyasai_meka"
-              ],
-              "jobTitle": "Freelancer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Self-Employed"
-              },
-              "alumniOf": {
-                "@type": "EducationalOrganization",
-                "name": "Bonam Venkata Chalamayya Institute of Technology & Science"
-              },
-              "image": "https://TejaRaju-Eeta.vercel.app/profile_pic.png",
-              "description": "TejaRaju-Eeta is a passionate full-stack developer specializing in React and modern web technologies, with expertise in AI, based in Amalapuram, Andhra Pradesh, India."
-            }
-          `}
-        </script>
+        <meta name="twitter:description" content="Official portfolio of TejaRaju Eeta, a full stack developer skilled in React, Node.js, and passionate about AI/ML." />
+        <meta name="twitter:image" content="https://tejarajueeta.vercel.app/profile_pic.png" />
       </Helmet>
 
       {/* UI Flow */}
@@ -102,7 +79,11 @@ function App() {
         <Loader onComplete={() => setShowLoader(false)} />
       ) : (
         <Router>
-          <div className="bg-white dark:bg-black">
+          <div className="bg-white dark:bg-black relative">
+            {/* Smooth cursor globally */}
+            <SmoothFollower />
+
+            {/* Main Layout */}
             <Navbar />
             <Routes>
               <Route path="/" element={<Hero />} />

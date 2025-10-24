@@ -1,13 +1,44 @@
 @import "tailwindcss";
 
-/* NAVBAR STYLING */
+/* GLOBAL SETTINGS */
+html, body {
+  background-color: black;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: whitesmoke;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Hide default scrollbars */
+html::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* ===== CUSTOM CURSOR GLOBAL CONFIG ===== */
+
+/* Hide the default cursor site-wide */
+* {
+  cursor: none;
+}
+
+/* Keep pointer style for clickable elements for accessibility */
+a, button {
+  cursor: pointer;
+}
+
+/* ===== NAVBAR ===== */
 #nav-overall {
   padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
   height: 4rem;
   color: whitesmoke;
-  background-color: black; 
+  background-color: black;
 }
 
 #nav-div {
@@ -42,15 +73,7 @@
   width: calc(100% - 20px);
 }
 
-/* Music */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Music Ends */
-
-/* HERO SECTION */
+/* ===== HERO SECTION ===== */
 .hero-section {
   min-height: 75vh;
   background-color: black;
@@ -76,7 +99,7 @@
 .hero-content h2 {
   font-size: 2.5rem;
   font-weight: normal;
-  color: whitesmoke; 
+  color: whitesmoke;
 }
 
 .typing-text {
@@ -96,7 +119,7 @@
   animation: shine 2.5s ease-in-out infinite;
 }
 
-/* SOCIAL ICONS */
+/* ===== SOCIAL ICONS ===== */
 #social-icons {
   display: flex;
   justify-content: center;
@@ -129,7 +152,22 @@
   z-index: 0;
 }
 
-/* ANIMATIONS */
+/* ===== ABOUT SECTION ===== */
+.coming-soon-text {
+  font-size: 70px;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(90deg, #888888, #bcbcbc, #ffffff, #bcbcbc, #888888);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 8s ease-in-out infinite;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+/* ===== ANIMATIONS ===== */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -140,57 +178,24 @@
   100% { background-position: 0 0; }
 }
 
-/* ABOUT SECTION PLACEHOLDER */
-.coming-soon-text {
-  font-size: 70px;
-  font-weight: 800;
-  text-align: center;
-  background: linear-gradient(
-    90deg,
-    #888888,
-    #bcbcbc,
-    #ffffff,
-    #bcbcbc,
-    #888888
-  );
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shimmer 8s ease-in-out infinite;
-  letter-spacing: 2px;
-  text-transform: capitalize;
-}
-
 @keyframes shimmer {
-  0% {
-    background-position: 300% 0;
-  }
-  50% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 300% 0;
-  }
-}
-
-/* Skills Styling Starts*/
-
-/* Skills Styling Ends*/
-
-/* Enter Style */
-.shine-animation {
-  animation: shine 6s ease-in-out infinite;
-}
-
-@keyframes shine {
-  0% { background-position: 200% 0; }
+  0% { background-position: 300% 0; }
   50% { background-position: 0 0; }
-  100% { background-position: 200% 0; }
+  100% { background-position: 300% 0; }
 }
-/* Enter Style ends */
 
-/* NAVBAR: Adjust gap for mobile */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 5s ease infinite;
+}
+
+/* ===== RESPONSIVE ===== */
 @media screen and (max-width: 768px) {
   #nav-div {
     gap: 0.8rem;
@@ -209,47 +214,8 @@
   }
 }
 
-/* Responsive heading for Skills */
 @media screen and (max-width: 640px) {
   .skills-heading {
     font-size: 2rem;
   }
 }
-
-
-/* GLOBAL STYLES */
-html, body {
-  background-color: black;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  color: whitesmoke; 
-}
-
-/* For hiding scroll bar*/
-html::-webkit-scrollbar {
-  display: none;
-}
-html {
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For IE and Edge */
-}
-
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradientMove 5s ease infinite;
-}
-
