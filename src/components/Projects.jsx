@@ -146,7 +146,7 @@ const Projects = () => {
       </div>
       <div>
       <a 
-      href="https://github.com/ChaitanyaSai-Meka"
+      href="https://github.com/Tejaetha11/"
       target="_blank"
       rel="noopener noreferrer"
       className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-base font-semibold leading-6  text-white inline-block">

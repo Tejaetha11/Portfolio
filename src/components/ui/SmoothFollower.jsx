@@ -11,8 +11,8 @@ export default function SmoothFollower() {
   });
   const [isHovering, setIsHovering] = useState(false);
 
-  const DOT_SMOOTHNESS = 0.2;
-  const BORDER_DOT_SMOOTHNESS = 0.1;
+  const DOT_SMOOTHNESS = 0.35;
+  const BORDER_DOT_SMOOTHNESS = 0.2;
 
   useEffect(() => {
     // Track real-time cursor position

@@ -76,7 +76,7 @@ const Hero = () => {
 
           <div className="flex justify-center gap-4 mt-6 text-2xl">
             <a
-              href="https://github.com/ChaitanyaSai-Meka"
+              href="https://github.com/Tejaetha11/"
               target="_blank"
               rel="noopener noreferrer"
               className="icon-circle hover:text-white transition"
@@ -84,7 +84,7 @@ const Hero = () => {
               <FaGithub />
             </a>
             <a
-              href="https://www.instagram.com/chaitanyasai_meka/"
+              href="https://www.instagram.com/teja_etha/"
               target="_blank"
               rel="noopener noreferrer"
               className="icon-circle hover:text-pink-600 transition"
@@ -92,7 +92,7 @@ const Hero = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://www.linkedin.com/in/chaitanya-sai-meka/"
+              href="https://www.linkedin.com/in/tejarajueeta/"
               target="_blank"
               rel="noopener noreferrer"
               className="icon-circle hover:text-blue-600 transition"
