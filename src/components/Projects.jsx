@@ -57,7 +57,7 @@ const projects = [
   {
     title: "Tower Defense Game",
     description:
-      "A fully playable tower defense game where players strategically place towers to stop waves of enemies from reaching the base. Features multiple tower types, enemy wave progression, and dynamic pathfinding — built with JavaScript and HTML5 Canvas.",
+      "A fully playable tower defense game where players strategically place towers to stop waves of enemies from reaching the base. Features multiple tower types, built with JavaScript and HTML5 Canvas.",
     link: "https://tower-defense11.netlify.app/",
     github: "https://github.com/Tejaetha11/Tower-Defense-Game.git",
     image: "/towerdefense.png",
