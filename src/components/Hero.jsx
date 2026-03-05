@@ -1,4 +1,3 @@
-
 import { Typewriter } from "react-simple-typewriter";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode, SiCodeforces } from "react-icons/si";
@@ -53,16 +52,16 @@ const Hero = () => {
           </svg>
 
           <h2 className="text-md md:text-xl lg:text-2xl text-neutral-300 mt-4">
-            Dreams Coded into Reality with{" "}
+            Turning Imagination into Reality through{" "}
             <span className="text-indigo-300 font-semibold typing-text">
               <Typewriter
                 words={[
-                  "Architecting Full-Stack Realities",
-                  "Animating Ideas into Interactive Worlds",
-                  "Engineering Backends Built to Endure",
-                  "Designing Interfaces That Breathe Elegance",
-                  "Building Apps That Transcend Boundaries",
-                  "Shaping 3D Dreams Through Code"
+                  "Pixel-Perfect Frontend Craft",
+                  "Game Mechanics That Feel Alive",
+                  "Code That Ships and Scales",
+                  "Levels Designed to Tell Stories",
+                  "Immersive Experiences Beyond Screens",
+                  "Dreams Rendered in Real Time"
                 ]}
                 loop={0}
                 cursor

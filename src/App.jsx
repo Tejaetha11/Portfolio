@@ -57,6 +57,7 @@ function App() {
           content="Official portfolio of TejaRaju Eeta, a full stack developer skilled in React, Node.js, and passionate about AI/ML. Explore projects, skills, and experience."
         />
         <link rel="canonical" href="https://tejarajueeta.vercel.app/" />
+        <link rel="preload" as="image" href="/profile_pic.png" />
 
         <meta property="og:title" content="TejaRaju Eeta | Full Stack Developer" />
         <meta property="og:description" content="Official portfolio of TejaRaju Eeta, a full stack developer skilled in React, Node.js, and passionate about AI." />

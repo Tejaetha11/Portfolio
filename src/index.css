@@ -26,10 +26,7 @@ html {
   cursor: none;
 }
 
-/* Keep pointer style for clickable elements for accessibility */
-a, button {
-  cursor: pointer;
-}
+
 
 /* ===== NAVBAR ===== */
 #nav-overall {
@@ -128,6 +125,7 @@ a, button {
 }
 
 .icon-circle {
+  cursor: none !important;
   font-size: 1.5rem;
   color: white;
   background-color: black;

@@ -86,6 +86,9 @@ export default function SmoothFollower() {
   // Avoid hydration warnings
   if (typeof window === 'undefined') return null;
 
+  // No cursor on touch/mobile devices
+  if (window.matchMedia('(pointer: coarse)').matches) return null;
+
   return (
     <div className="pointer-events-none fixed inset-0 z-[10000]">
       {/* Main small dot */}

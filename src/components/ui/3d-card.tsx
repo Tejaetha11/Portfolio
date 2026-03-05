@@ -34,18 +34,17 @@ export const CardContainer: React.FC<CardContainerProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
 
+  // --- Desktop: mouse tilt ---
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
-    const { left, top, width, height } = 
+    const { left, top, width, height } =
       containerRef.current.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 25;
     const y = (e.clientY - top - height / 2) / 25;
     containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
   };
 
-  const handleMouseEnter = () => {
-    setIsMouseEntered(true);
-  };
+  const handleMouseEnter = () => setIsMouseEntered(true);
 
   const handleMouseLeave = () => {
     if (!containerRef.current) return;
@@ -53,13 +52,48 @@ export const CardContainer: React.FC<CardContainerProps> = ({
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
 
+  // --- Mobile: gyroscope tilt ---
+  useEffect(() => {
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    if (!isTouchDevice) return;
+
+    const handleOrientation = (e: DeviceOrientationEvent) => {
+      if (!containerRef.current) return;
+      const beta = e.beta ?? 0;   // front-back tilt (-180 to 180)
+      const gamma = e.gamma ?? 0; // left-right tilt (-90 to 90)
+
+      // Clamp and scale down for subtle effect
+      const x = Math.min(Math.max(gamma / 5, -10), 10);
+      const y = Math.min(Math.max((beta - 40) / 5, -10), 10);
+
+      containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+    };
+
+    // iOS 13+ requires permission
+    const requestPermission = async () => {
+      if (typeof (DeviceOrientationEvent as any).requestPermission === "function") {
+        try {
+          const permission = await (DeviceOrientationEvent as any).requestPermission();
+          if (permission === "granted") {
+            window.addEventListener("deviceorientation", handleOrientation);
+          }
+        } catch (err) {
+          // Permission denied or not supported
+        }
+      } else {
+        window.addEventListener("deviceorientation", handleOrientation);
+      }
+    };
+
+    requestPermission();
+    return () => window.removeEventListener("deviceorientation", handleOrientation);
+  }, []);
+
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
-        className={cn("py-20 flex items-center justify-center", containerClassName)}
-        style={{
-          perspective: "1000px",
-        }}
+        className={cn("py-4 flex items-center justify-center", containerClassName)}
+        style={{ perspective: "1000px" }}
         {...props}
       >
         <div
@@ -71,9 +105,7 @@ export const CardContainer: React.FC<CardContainerProps> = ({
             "flex items-center justify-center relative transition-all duration-200 ease-linear",
             className
           )}
-          style={{
-            transformStyle: "preserve-3d",
-          }}
+          style={{ transformStyle: "preserve-3d" }}
         >
           {children}
         </div>
@@ -95,7 +127,7 @@ export const CardBody: React.FC<CardBodyProps> = ({
   return (
     <div
       className={cn(
-        "h-96 w-96 [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]",
+        "h-full w-auto [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]",
         className
       )}
       {...props}

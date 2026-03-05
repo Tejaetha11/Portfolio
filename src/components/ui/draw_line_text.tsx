@@ -1,7 +1,6 @@
 "use client";
 
 import { ComponentProps, useRef, useState, useEffect } from "react";
-
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -42,7 +41,7 @@ export const DrawLineText = ({
 
   useEffect(() => {
     if (typeof fontSize !== "object") {
-      setCurrentFontSize(fontSize);
+      setCurrentFontSize(fontSize as number);
       return;
     }
 
@@ -81,9 +80,12 @@ export const DrawLineText = ({
     () => {
       const wrapperChildren = wrapperRef.current?.children;
       if (!wrapperChildren) return;
+
+      const isMobile = window.innerWidth < 768;
       const children = Array.from(wrapperChildren) as SVGTextElement[];
       let totalWidth = 0;
       let maxHeight = 0;
+
       children.forEach((el, index) => {
         el.setAttribute("x", totalWidth + "px");
         const elementWidth = el.getBoundingClientRect().width;
@@ -94,10 +96,12 @@ export const DrawLineText = ({
         totalWidth +=
           +(elementWidth == 0 ? wordSpacing : elementWidth) +
           (children.length - 1 != index ? letterSpacing : 0);
+
         const length = el.getComputedTextLength() * 8;
         el.style.strokeDasharray = length + "px";
         el.style.strokeDashoffset = length + "px";
       });
+
       setTextDimension({ width: totalWidth, height: maxHeight });
 
       const textChildren = children.filter(
@@ -105,25 +109,26 @@ export const DrawLineText = ({
       );
 
       const tl = gsap.timeline();
+
       tl.to(textChildren, {
         strokeDashoffset: 0,
-        duration: 1.75,
+        duration: isMobile ? 1.2 : 1.75,
         ease: "linear",
-        stagger: oneByOne ? 0.8 : 0,
+        stagger: isMobile ? 0.5 : 0.8,
       });
+
       if (afterFill) {
         tl.to(textChildren, {
           fillOpacity: 1,
-          duration: 0.55,
+          duration: isMobile ? 0.4 : 0.55,
           ease: "power4.in",
           stagger: {
-            amount: 0.2,
+            amount: isMobile ? 0.15 : 0.2,
             from: "center",
           },
         });
       }
     },
-    // Rerun GSAP animation if text or currentFontSize changes
     { scope: wrapperRef, dependencies: [text, currentFontSize] }
   );
 
