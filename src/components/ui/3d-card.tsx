@@ -59,33 +59,40 @@ export const CardContainer: React.FC<CardContainerProps> = ({
 
     const handleOrientation = (e: DeviceOrientationEvent) => {
       if (!containerRef.current) return;
-      const beta = e.beta ?? 0;   // front-back tilt (-180 to 180)
-      const gamma = e.gamma ?? 0; // left-right tilt (-90 to 90)
+      const beta = e.beta ?? 0;
+      const gamma = e.gamma ?? 0;
 
-      // Clamp and scale down for subtle effect
-      const x = Math.min(Math.max(gamma / 5, -10), 10);
-      const y = Math.min(Math.max((beta - 40) / 5, -10), 10);
+      // Increased sensitivity so tilt is clearly visible
+      const x = Math.min(Math.max(gamma / 3, -15), 15);
+      const y = Math.min(Math.max((beta - 40) / 3, -15), 15);
 
       containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
     };
 
-    // iOS 13+ requires permission
-    const requestPermission = async () => {
-      if (typeof (DeviceOrientationEvent as any).requestPermission === "function") {
+    const startListening = () => {
+      window.addEventListener("deviceorientation", handleOrientation);
+    };
+
+    // iOS 13+ requires explicit user permission via a tap
+    if (typeof (DeviceOrientationEvent as any).requestPermission === "function") {
+      // iOS — add a one-time tap listener to request permission
+      const requestOnTap = async () => {
         try {
           const permission = await (DeviceOrientationEvent as any).requestPermission();
           if (permission === "granted") {
-            window.addEventListener("deviceorientation", handleOrientation);
+            startListening();
           }
         } catch (err) {
-          // Permission denied or not supported
+          // silently fail
         }
-      } else {
-        window.addEventListener("deviceorientation", handleOrientation);
-      }
-    };
+        document.removeEventListener("touchstart", requestOnTap);
+      };
+      document.addEventListener("touchstart", requestOnTap, { once: true });
+    } else {
+      // Android — start immediately, no permission needed
+      startListening();
+    }
 
-    requestPermission();
     return () => window.removeEventListener("deviceorientation", handleOrientation);
   }, []);
 

@@ -44,7 +44,7 @@ const About = () => {
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
       {/* Content */}
-      <div className="relative z-20 max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-12">
+      <div className="relative z-20 max-w-5xl w-full flex flex-col md:flex-row items-center md:items-center gap-16">
         {/* Profile Image */}
         <div className="relative w-65 h-65 rounded-full overflow-hidden flex-shrink-0 border-4 border-neutral-800 bg-neutral-900">
           <BlurImage
@@ -56,7 +56,7 @@ const About = () => {
         </div>
 
         {/* Text Content */}
-        <div className="text-left text-neutral-300 max-w-2xl ml-8 md:ml-16">
+        <div className="text-left text-neutral-300 max-w-2xl">
           {/* Clean chrome finish Heading */}
           <h1 className="text-4xl sm:text-7xl font-extrabold py-8 inline-block">
             <span className="bg-gradient-to-b from-neutral-100 via-neutral-400 to-neutral-700 bg-clip-text text-transparent [text-shadow:2px_2px_4px_rgba(0,0,0,0.5)] filter drop-shadow-[0_5px_15px_rgba(255,255,255,0.2)] hover:drop-shadow-[0_8px_20px_rgba(255,255,255,0.3)] transition-all duration-300">

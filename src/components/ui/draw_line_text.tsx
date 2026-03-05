@@ -82,6 +82,7 @@ export const DrawLineText = ({
       if (!wrapperChildren) return;
 
       const isMobile = window.innerWidth < 768;
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
       const children = Array.from(wrapperChildren) as SVGTextElement[];
       let totalWidth = 0;
       let maxHeight = 0;
@@ -112,18 +113,18 @@ export const DrawLineText = ({
 
       tl.to(textChildren, {
         strokeDashoffset: 0,
-        duration: isMobile ? 1.2 : 1.75,
+        duration: isIOS ? 0.4 : isMobile ? 1.2 : 1.75,
         ease: "linear",
-        stagger: isMobile ? 0.5 : 0.8,
+        stagger: isIOS ? 0.08 : isMobile ? 0.5 : 0.8,
       });
 
       if (afterFill) {
         tl.to(textChildren, {
           fillOpacity: 1,
-          duration: isMobile ? 0.4 : 0.55,
+          duration: isIOS ? 0.2 : isMobile ? 0.4 : 0.55,
           ease: "power4.in",
           stagger: {
-            amount: isMobile ? 0.15 : 0.2,
+            amount: isIOS ? 0.08 : isMobile ? 0.15 : 0.2,
             from: "center",
           },
         });
